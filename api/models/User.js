@@ -20,12 +20,26 @@ module.exports = {
              minLength: 6,
              required: true
          },
+         nom: {
+                      type: 'string',
+                      minLength: 6,
+                      required: false
+                  },
          prenom: {
                       type: 'string',
                       minLength: 6,
-                      required: true
+                      required: false
           },
-
+         tel: {
+                       type: 'string',
+                       minLength: 6,
+                       required: false
+                   },
+          addresse: {
+                       type: 'string',
+                       minLength: 6,
+                       required: false
+                   },
          toJSON: function() {
              var obj = this.toObject();
              delete obj.password;
