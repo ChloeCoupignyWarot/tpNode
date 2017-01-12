@@ -1,13 +1,12 @@
 boom !
 
 <h2>Mes Infos</h2>
-<%if (user.Nom == null){%>
+<%if (user.nom == null){%>
 <p>Nom : Non défini </p>
 <%}else{%>
-<p>Nom : <%= user.Nom%> </p>
+<p>Nom : <%= user.nom%> </p>
 <%}%>
 
-<p>essai :<%=user.prenom%> </p>
 <%if (user.prenom == null){%>
 <p>Prenom : Non défini </p>
 <%}else{%>
@@ -33,14 +32,23 @@ boom !
 
 <h2>Changer ses identifiants</h2>
 
+
 <form method="POST" action="/user/<%= user.id%>" >
   <p>Prenom :  </p><input type="text" name="prenom" >
   <input type="submit" value="submit">
 
 </form>
-<form method="POST" action="/user/<%= user.id%>">
-  <p>Password :  </p><input type="email" name="email">
+
+<form method="POST" action="/user/<%= user.id%>" >
+  <p>Tel :  </p><input type="text" name="tel" >
   <input type="submit" value="submit">
 
 </form>
+
+<form method="POST" action="/user/<%= user.id%>" >
+  <p>Adresse :  </p><input type="text" name="addresse" >
+  <input type="submit" value="submit">
+
+</form>
+
 
