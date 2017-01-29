@@ -1,54 +1,172 @@
-boom !
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
 
-<h2>Mes Infos</h2>
-<%if (user.nom == null){%>
-<p>Nom : Non défini </p>
-<%}else{%>
-<p>Nom : <%= user.nom%> </p>
-<%}%>
+  <body>
+    <main>
+      <div>
+        <h1> Mon Compte</h1>
+      </div>
 
-<%if (user.prenom == null){%>
-<p>Prenom : Non défini </p>
-<%}else{%>
-<p>Prenom : <%= user.prenom%></p>
-<%}%>
+      <div class = "container-fluid">
 
-<%if (user.tel == null){%>
-<p>Nom : Non défini </p>
-<%}else{%>
-<p>tel : <%= user.tel%></p>
-<%}%>
+        <div class = "row">
+          <div class = "col-md-4 commonResult">
+            <div class = "content">
+              <h2>Mes Infos</h2>
+              <%if (user.nom == null){%>
+                <p>Nom : Non défini </p>
+              <%}else{%>
+                <p>Nom : <%= user.nom%> </p>
+              <%}%>
 
-<%if (user.addresse == null){%>
-<p>Nom : Non défini </p>
-<%}else{%>
-<p>Adresse : <%= user.addresse%></p>
-<%}%>
+              <%if (user.prenom == null){%>
+                <p>Prenom : Non défini </p>
+              <%}else{%>
+                <p>Prenom : <%= user.prenom%></p>
+              <%}%>
+
+              <%if (user.tel == null){%>
+                <p>Nom : Non défini </p>
+              <%}else{%>
+                <p>tel : <%= user.tel%></p>
+              <%}%>
+              <br>
+
+              <form method="POST" action="/user/<%= user.id%> id="test >
+                <p>Prenom :  </p><input type="text" name="prenom" >
+                              <input type="submit" value="submit">
+                            </form>
+
+                            <form method="POST" action="/user/<%= user.id%>" >
+                              <p>Tel :  </p><input type="text" name="tel" >
+                              <input type="submit" value="submit">
+                            </form>
+            </div>
+          </div>
+          <div class = "col-md-4 commonResult">
+            <div class = "content">
+              <h2>Mon adresse</h2>
+               <%if (user.addresses.length == 0){%>
+                  <p>Ville :Non définie</p>
+                  <p>Rue : Non définie</p>
+                  <p>Numéro : Non définie</p>
+                  <p>Code postal : Non définie</p>
+
+               <%}else{%>
+                  <%if (user.addresses[0].ville == null){%>
+                    <p>Ville :Non défini</p>
+                    <p>Ville : <%= user.addresses[0].ville%></p>
+                  <%}else{%>
+                    <p>Ville : <%= user.addresses[0].ville%></p>
+                  <%}%>
+
+                  <%if (user.addresses[0].rue == null){%>
+                    <p>Rue :Non défini</p>
+                  <%}else{%>
+                    <p>Rue : <%= user.addresses[0].rue%></p>
+                  <%}%>
+
+                 <%if ( user.addresses[0].numero == null){%>
+                   <p>Numéro :Non défini</p>
+                 <%}else{%>
+                   <p>Numéro : <%= user.addresses[0].numero%></p>
+                 <%}%>
+
+                 <%if ( user.addresses[0].codePostal == null){%>
+                   <p>Code postal :Non défini</p>
+                 <%}else{%>
+                   <p>Code postal : <%= user.addresses[0].codePostal%></p>
+                 <%}%>
+                 <%}%>
+              <form method="POST" action="/address/<%= user.addresses[0].id%>">
+                <p>Ville :  </p><input type="text" name="ville" >
+                <input type="submit" value="submit">
+              </form>
+
+              <form method="POST" action="/address/<%= user.addresses[0].id%>" >
+                <p>Rue :  </p><input type="text" name="rue" >
+                <input type="submit" value="submit">
+              </form>
+
+              <form method="POST" action="/address/<%= user.addresses[0].id%>" >
+                <p>Numéro :  </p><input type="text" name="numero" >
+                <input type="submit" value="submit">
+              </form>
+
+              <form method="POST" action="/address/<%= user.addresses[0].id%>" >
+                <p>Code postal :  </p><input type="text" name="codePostal" >
+                <input type="submit" value="submit">
+              </form>
+
+            </div>
+          </div>
+          <div class = "col-md-4 commonResult">
+            <div class = "content">
+              <h2>Données de connection</h2>
+              <p>login : <%= user.email%> </p>
+
+            </div>
+          </div>
+        </div>
 
 
-<h2>Connection</h2>
-<p>login : <%= user.email%> </p>
 
 
-<h2>Changer ses identifiants</h2>
+
+    </main>
+  </body>
+</html>
 
 
-<form method="POST" action="/user/<%= user.id%>" >
-  <p>Prenom :  </p><input type="text" name="prenom" >
-  <input type="submit" value="submit">
 
-</form>
+<style>
 
-<form method="POST" action="/user/<%= user.id%>" >
-  <p>Tel :  </p><input type="text" name="tel" >
-  <input type="submit" value="submit">
+#colorState{
+    background-color: #FFD04C;
 
-</form>
+}
 
-<form method="POST" action="/user/<%= user.id%>" >
-  <p>Adresse :  </p><input type="text" name="addresse" >
-  <input type="submit" value="submit">
+h1{
+    text-align: center;
+    border-bottom:1px solid green;
+    margin-right: 150px;
+    margin-left: 150px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
 
-</form>
+.commonResult{
+     padding-right:10px;
+     padding-left:10px;
 
+
+}
+
+
+.content {
+     text-align: center;
+
+     overflow-wrap: break-word;
+     word-wrap: break-word;
+
+     -ms-word-break: break-all;
+     word-break: break-all;
+     word-break: break-word;
+
+     -ms-hyphens: auto;
+     -moz-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+ }
+ .row{
+    margin-right: 150px;
+    margin-left: 150px;
+ }
+
+</style>
 
