@@ -6,15 +6,21 @@
  */
 module.exports = {
     moncompte: function(req, res) {
-    if(req.user){
-            var data = {};
-            data.mesdata = {title: "titre", content: "content"};
-            data.user = req.user;
-            return  res.view('moncompte', data);
-     }
-     else{
-     res.redirect('/login');
-     }
-     }
+      if(req.user){
+              var data = {};
+              data.mesdata = {title: "titre", content: "content"};
+
+
+        User.findOne({id:req.user.id}).populate('addresses').exec(function(err, user){
+        console.log(user);
+        data.user = user;
+         return  res.view('moncompte', data);
+        })
+
+      }
+      else{
+        res.redirect('/login');
+      }
+    }
 };
 
