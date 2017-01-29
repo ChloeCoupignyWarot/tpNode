@@ -35,10 +35,12 @@ module.exports = {
                        minLength: 6,
                        required: false
                    },
-          addresse: {
+          addresses: {
+                       collection: 'address',
                        type: 'string',
                        minLength: 6,
-                       required: false
+                       required: false,
+                       via: 'owner'
                    },
          toJSON: function() {
              var obj = this.toObject();
