@@ -34,22 +34,26 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  },
+   },
    'get /login': {
-          view: 'login'
-     },
+      view: 'login'
+   },
 
-     'post /login': 'AuthController.login',
+   'post /login': 'AuthController.login',
 
-     '/logout': 'AuthController.logout',
+   '/logout': 'AuthController.logout',
 
-     'get /signup': {
-       view: 'signup'
-     },
-    'get /monCompte': {
+   'get /signup': {
+     view: 'signup'
+   },
+   'get /monCompte': {
+    controller : 'UserController',
+    action : 'moncompte'
+   },
+  'post /uploadAvatar': {
      controller : 'UserController',
-     action : 'moncompte'
-    }
+     action : 'avatar'
+  }
 
   /***************************************************************************
   *                                                                          *
