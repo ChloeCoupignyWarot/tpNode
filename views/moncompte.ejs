@@ -13,7 +13,8 @@
   <body>
     <main>s
       <div>
-        <h1> Mon Compte</h1>
+      <h1>Mon compte</h1>
+
       </div>
 
       <div class = "container-fluid">
@@ -119,13 +120,22 @@
 
         </div>
         <div class = "row">
-           <form action="/uploadAvatar" method="post"  enctype="multipart/form-data" class="dropzone contentDivDropZone" id="myDropzone">
-              <div class="fallback">
-              <input type="file" name="file"/>
-               </div>
-           </form>
+          <form action="/uploadAvatar" enctype="multipart/form-data" method="post">
+              <input type="text" name="title">
+              <input type="file" name="avatar" multiple="multiple">
+              <input type="submit" value="Upload">
+          </form>
+
         </div>
 
+        <div class = "row">
+         <%if ( user.avatar == null){%>
+           <img src="images/avatars/inconnue.png" alt="avatar ">
+         <%}else{%>
+           <img src="images/avatars/<%= user.avatar%>" alt="Mountain View" style="width:304px;height:228px;">
+           <%}%>
+
+                </div>
 
 
 
