@@ -7,7 +7,7 @@
 
 var fs = require('fs');
 var path = require('path');
-var multer  = require('multer')
+var multer  = require('multer');
 
 module.exports = {
     moncompte: function(req, res) {
@@ -17,7 +17,7 @@ module.exports = {
 
 
         User.findOne({id:req.user.id}).populate('addresses').exec(function(err, user){
-        console.log(user);
+        //console.log(user);
         data.user = user;
          return  res.view('moncompte', data);
         })
@@ -28,11 +28,29 @@ module.exports = {
       }
     },
     avatar: function(req, res) {
-    console.log(req.body);
-    console.log(req.files);
+      req.file('avatar').upload({
+        dirname: path.resolve(sails.config.appPath, 'assets/images/avatars')
+      },function (err, uploadedFiles) {
+        if (err) return res.negotiate(err);
+        //console.log(uploadedFiles[0]);
+        User.update({id:req.user.id},{avatar:path.basename(uploadedFiles[0].fd)}).exec(function(err, user){
+          if(req.user){
+                        var data = {};
 
-    //return res.status( 200 ).send( req.file );
-       return res.json({"result":"ok"});
-    }
+
+                  User.findOne({id:req.user.id}).populate('addresses').exec(function(err, user){
+                  //console.log(user);
+                  data.user = user;
+                   return  res.view('moncompte', data);
+                  })
+
+                }
+                else{
+                  res.redirect('/login');
+                }
+                })
+
+
+      })},
 };
 
