@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <script src="tp2.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body onload="initSelection()">
     <main>
       <div>
         <h1>Ici le tp2 sur les requete javascripts </h1>
@@ -18,26 +21,37 @@
               <p id="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a urna vehicula, mattis arcu quis, posuere lorem. Mauris bibendum erat at tortor consequat luctus. Ut mollis ex et tellus dictum congue. Vivamus fringilla nec augue nec euismod. Maecenas est leo, facilisis id augue ac, tristique congue magna. Aliquam pulvinar suscipit efficitur. In malesuada feugiat dolor, eu fermentum dui venenatis at. Pellentesque turpis nisl, volutpat nec felis non, luctus pretium mi.</p>
           </div>
         </div>
-        <div class = "row" id="rowList">
-          <div class = "col-md-6" id="liste1">
-            <h2 class="title" id="titre1">Ici une liste </h2>
-            <ol id="ol1">
-              <li id="list1"> liste 1 </li>
-              <li id="list2">liste 2</li>
-              <li id="list3">liste 3</li>
+        <div class = "row" >
+          <div class = "col-md-6">
+            <h2 >Ici une liste </h2>
+            <ol>
+              <li> liste 1 </li>
+              <li>liste 2</li>
+              <li>liste 3</li>
             </ol>
           </div>
-          <div class = "col-md-6" id="liste2">
-            <h2 class="title" id="titre2">Ici une autre liste</h2>
-            <ul id="ul2">
-              <li id="resultat1">resultat 1</li>
-              <li id="resultat2">resultat 2</li>
-              <li id="resultat3">resultat 3</li>
+          <div class = "col-md-6" >
+            <h2>Ici une autre liste</h2>
+            <ul>
+              <li>resultat 1</li>
+              <li>resultat 2</li>
+              <li>resultat 3</li>
             </ul>
           </div>
         </div>
-        <div class="row">
-          <div class = "col-md-12">
+        <div class="row ">
+          <h2 class ="title">Consignes pour insérer un nouvel élément: </h2>
+        </div>
+        <div class = "row">
+          <div class = "col-md-8">
+
+            <ol>
+              <li> Sélectionner un élément de la page (il s'affichera en bleu) l'élément à insérer se trouvera au dessu de celui-ci </li>
+              <li > Insérer le contenu de ce nouvel élément dans le champs texte</li>
+              <li> Choisir le type de cet élément (p --> Paragraphe, div --> duvusion, h2 --> titre 2)</li>
+            </ol>
+          </div>
+          <div class = "col-md-4">
             <div id="frameInsert">
               <input type="button" value="DIV" onclick="insertB('div')"/>
               <input type="button" value="P" onclick="insertB('p')"/>
@@ -52,7 +66,7 @@
     </main>
   </body>
 
-  <script src="tp2.js"></script>
+
 
 </html>
 
@@ -73,6 +87,10 @@ title{
 }
 .list{
     border-radius : 15px 50px;
+}
+
+.title{
+text-align: center;
 }
 
 </style>
