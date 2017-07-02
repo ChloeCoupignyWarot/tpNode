@@ -10,6 +10,18 @@ var path = require('path');
 var multer  = require('multer');
 
 module.exports = {
+
+    test: function(req, res){
+        var where = {id:req.user.id};
+
+        User
+          .findOne(where)
+          .populate('addresses')
+          .exec(function(err, user){
+            return res.json(user);
+          });
+      },
+
     moncompte: function(req, res) {
       if(req.user){
               var data = {};

@@ -1,10 +1,6 @@
 function initSelection(){
   document.body.addEventListener("click", selection2);
-
-
 }
-
-
 
 function selection(evt){
 

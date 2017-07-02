@@ -53,6 +53,10 @@ module.exports.routes = {
     controller : 'UserController',
     action : 'moncompte'
    },
+   'post /monCompte/test': {
+       controller: 'UserController',
+       action:'test'
+     },
   'post /uploadAvatar': {
      controller : 'UserController',
      action : 'avatar'
